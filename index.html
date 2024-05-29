@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delivery Calculator</title>
+    <title>Delivery Calculator with OCR</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,6 +21,17 @@
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
+        }
+        .inline-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .inline-group .input-group {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .inline-group .input-group:last-child {
+            margin-right: 0;
         }
         button {
             padding: 10px 20px;
@@ -41,26 +52,36 @@
 </head>
 <body>
 
-    <h1>Delivery Calculator</h1>
-    <div class="input-group">
-        <label for="mileage">Car Mileage (miles per gallon):</label>
-        <input type="number" id="mileage" required>
+    <h1>Delivery Calculator with OCR</h1>
+    <div class="inline-group">
+        <div class="input-group">
+            <label for="mileage">Car Mileage (miles per gallon):</label>
+            <input type="number" id="mileage" required>
+        </div>
+        <div class="input-group">
+            <label for="gasPrice">Gas Price per Gallon ($):</label>
+            <input type="number" id="gasPrice" required>
+        </div>
     </div>
     <div class="input-group">
+        <label for="screenshot">Upload Order Screenshot:</label>
+        <input type="file" id="screenshot" accept="image/*" required>
+    </div>
+    <button id="processScreenshot">Process Screenshot</button>
+
+    <div id="addressOutput"></div> <!-- Temporary output for verification -->
+
+    <div class="input-group">
         <label for="distance">Delivery Distance (miles):</label>
-        <input type="number" id="distance" required>
+        <input type="number" id="distance" readonly>
     </div>
     <div class="input-group">
         <label for="basePay">Base Pay ($):</label>
-        <input type="number" id="basePay" required>
-    </div>
-    <div class="input-group">
-        <label for="gasPrice">Gas Price per Gallon ($):</label>
-        <input type="number" id="gasPrice" required>
+        <input type="number" id="basePay" readonly>
     </div>
     <div class="input-group">
         <label for="deliveryTime">Estimated Time to Complete Delivery (minutes):</label>
-        <input type="number" id="deliveryTime" required>
+        <input type="number" id="deliveryTime" readonly>
     </div>
     <button id="calculate">Calculate</button>
 
@@ -71,6 +92,7 @@
         <p id="dollarPerHour"></p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
