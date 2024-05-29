@@ -22,4 +22,16 @@ Technologies Used:
 
 In-Depth Descriptions of Technologies Used:
 
+-User Interface Design (HTML and CSS)
+  I designed a clean and intuitive user interface using HTML for the structure and CSS for styling. This ensured that the application is user-friendly and visually appealing. I made sure the design included a responsive layout, making the application accessible on various devices, from desktops to mobile phones.
+
+-Data Extraction Logic (Optical Character Recognition)
+  I integrated Tesseract.js, an OCR library, to process uploaded screenshots. Tesseract.js extracts text from images, allowing me to read key delivery details such as distance, base pay, and estimated time. I implemented precise regular expressions to locate and extract essential information from the text recognized by the OCR. This involved refining patterns to accurately capture data such as mileage, delivery distance, base pay, and estimated delivery time. I ensured that the extracted data is correctly populated into the respective fields for further calculations.
+
+-JavaScript Integration (Node.js)
+  I utilized Node.js for the server-side logic, handling the file uploads and processing the OCR results. I used JavaScript to handle user interactions, process the extracted data, and perform the necessary calculations to provide the final results.
+
+-Calculation and Results Display
+  I developed the application to calculate the total cost of the delivery trip, the profit, profit per mile, and dollar per hour based on the extracted and user-provided data.
+
 
